@@ -1,0 +1,80 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: #fafafa;
+}
+
+.card {
+  max-width: 480px;
+  width: 100%;
+  padding: 32px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: sans-serif;
+}
+
+.title {
+  margin-bottom: 12px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 24px;
+}
+
+.tgButton {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 14px 20px;
+  background: #2aabee;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.divider {
+  text-align: center;
+  opacity: 0.6;
+  margin: 20px 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.submit {
+  padding: 12px;
+  border-radius: 8px;
+  background: #111;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.success {
+  color: green;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 12px;
+}

@@ -1,6 +1,8 @@
 import { IconContext } from '@react-icons/all-files'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
+import { Analytics } from '../components/analytics'
+
 export default class MyDocument extends Document {
   override render() {
     return (
@@ -16,9 +18,12 @@ export default class MyDocument extends Document {
             />
 
             <link rel='manifest' href='/manifest.json' />
+
+            <Analytics.Header />
           </Head>
 
           <body>
+            <Analytics.Body />
             <script
               dangerouslySetInnerHTML={{
                 __html: `

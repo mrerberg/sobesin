@@ -12,7 +12,7 @@ export function Page404({ site, pageId, error }: types.PageProps) {
 
       <div className={styles.container}>
         <main className={styles.main}>
-          <h1>Notion Page Not Found</h1>
+          <h1>Page Not Found</h1>
 
           {error ? (
             <p>{error.message}</p>

@@ -14,7 +14,10 @@ async function searchNotionImpl(
 ): Promise<types.SearchResults> {
   return fetch(api.searchNotion, {
     method: 'POST',
-    body: JSON.stringify(params),
+    body: JSON.stringify({
+      ...params,
+      ancestorId: '29ae3422cca480f08519fb095df2892a'
+    }),
     headers: {
       'content-type': 'application/json'
     }
