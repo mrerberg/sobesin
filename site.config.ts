@@ -8,9 +8,11 @@ export default siteConfig({
   // (this should be a Notion ID; see the docs for how to extract this)
   rootNotionSpaceId: null,
 
+  includeNotionIdInUrls: true,
+
   // basic site info (required)
   name: 'Sobesin',
-  domain: 'nextjs-notion-starter-kit.transitivebullsh.it',
+  domain: 'sobesin.vercel.app',
   author: 'Michel Cheremukhin-Rerberg',
 
   // open graph metadata (optional)
