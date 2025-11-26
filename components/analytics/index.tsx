@@ -1,4 +1,4 @@
-const ID = 'GTM-WCCZ5R4C'
+const ID = process.env.GTM
 
 export const Analytics = {
   Header: AnalyticsHeader,
