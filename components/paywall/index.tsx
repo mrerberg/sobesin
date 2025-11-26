@@ -50,7 +50,7 @@ export function Paywall() {
 
     const data = await res.json()
 
-    if (data.ok) {
+    if ((data as any).ok) {
       const { cleanTitle, topicKey } = getStore()
 
       console.log('-->', { cleanTitle, topicKey })
