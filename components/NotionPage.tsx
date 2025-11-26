@@ -257,8 +257,11 @@ export function NotionPage({
   if (!config.isServer) {
     // add important objects to the window global for easy debugging
     const g = window as any
+    // eslint-disable-next-line react-hooks/immutability
     g.pageId = pageId
+    // eslint-disable-next-line react-hooks/immutability
     g.recordMap = recordMap
+    // eslint-disable-next-line react-hooks/immutability
     g.block = block
   }
 

@@ -42,15 +42,14 @@ export default async function handler(
             }
           ]
         },
-        Source: source
-          ? {
-              rich_text: [
-                {
-                  text: { content: source }
-                }
-              ]
+        Source: {
+          rich_text: [
+            {
+              text: { content: source || '' }
             }
-          : undefined,
+          ]
+        },
+
         CreatedAt: {
           date: { start: new Date().toISOString() }
         }
