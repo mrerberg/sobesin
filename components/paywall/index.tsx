@@ -53,8 +53,6 @@ export function Paywall() {
     if ((data as any).ok) {
       const { cleanTitle, topicKey } = getStore()
 
-      console.log('-->', { cleanTitle, topicKey })
-
       setSent(true)
       pushToAnalytics({
         event: 'lead_submit',
@@ -119,7 +117,7 @@ export function Paywall() {
               className={styles.submit}
               disabled={submitting}
             >
-              Получить письмо о запуске
+              {submitting ? 'Отправляю...' : 'Получить письмо о запуске'}
             </button>
           </form>
         ) : (
