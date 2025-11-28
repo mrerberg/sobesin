@@ -15,6 +15,7 @@ import { EmbeddedTweet, TweetNotFound, TweetSkeleton } from 'react-tweet'
 import { useSearchParam } from 'react-use'
 
 import type * as types from '@/lib/types'
+import { FeedbackForm } from '@/components/feedback-form'
 import * as config from '@/lib/config'
 import { mapImageUrl } from '@/lib/map-image-url'
 import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url'
@@ -257,11 +258,10 @@ export function NotionPage({
   if (!config.isServer) {
     // add important objects to the window global for easy debugging
     const g = window as any
-    /* eslint-disable */
+
     g.pageId = pageId
     g.recordMap = recordMap
     g.block = block
-    /* eslint-enable */
   }
 
   const canonicalPageUrl = config.isDev
@@ -293,6 +293,8 @@ export function NotionPage({
 
       {isLiteMode && <BodyClassName className='notion-lite' />}
       {isDarkMode && <BodyClassName className='dark-mode' />}
+
+      <FeedbackForm title={title} />
 
       <NotionRenderer
         bodyClassName={cs(

@@ -1,4 +1,4 @@
-const STORE = { cleanTitle: '', topicKey: '' }
+const STORE = { cleanTitle: '', topicKey: '', contentType: '' }
 
 export const setToStore = (data: unknown) => {
   ;(window as any).data = data

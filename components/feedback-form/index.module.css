@@ -1,0 +1,198 @@
+.fab {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 50;
+
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+
+  background: var(--notion-purple);
+  color: var(--fg-color-0);
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.fab:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.fab:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* затемнение фона */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+/* сама модалка */
+.modal {
+  max-width: 480px;
+  width: 100%;
+
+  background: var(--bg-color-1);
+  color: var(--fg-color-0);
+
+  border-radius: 12px;
+  padding: 18px 18px 14px;
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--notion-gray_background_co);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg-color-0);
+}
+
+.closeButton {
+  border: none;
+  background: transparent;
+  color: var(--notion-gray);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.closeButton:hover {
+  color: var(--fg-color-0);
+}
+
+.context {
+  font-size: 12px;
+  color: var(--fg-color-5);
+  margin: 0 0 12px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--fg-color-0);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* textarea в стиле Notion dark */
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+  max-height: 200px;
+
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 8px 10px;
+
+  border-radius: 6px;
+  border: 1px solid var(--notion-gray_background_co);
+
+  background: var(--bg-color-0);
+  color: var(--fg-color-0);
+
+  outline: none;
+}
+
+.textarea::placeholder {
+  color: var(--fg-color-5);
+}
+
+.textarea:focus {
+  border-color: var(--notion-blue);
+  box-shadow: 0 0 0 1px var(--notion-blue_background_co);
+}
+
+/* ошибка */
+.error {
+  font-size: 12px;
+  color: var(--notion-red);
+  margin: 0;
+}
+
+/* блок с кнопками */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* основная кнопка (отправка) */
+.primaryButton {
+  border: none;
+  border-radius: 999px;
+  padding: 7px 14px;
+
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+
+  background: var(--notion-purple);
+  color: var(--fg-color-0);
+}
+
+.primaryButton:hover:not(:disabled) {
+  background: var(--notion-blue);
+}
+
+.primaryButton:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* вторичная кнопка (отмена/ещё один отзыв) */
+.secondaryButton {
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 13px;
+
+  border: 1px solid var(--notion-gray_background_co);
+  background: transparent;
+  color: var(--fg-color-0);
+  cursor: pointer;
+}
+
+.secondaryButton:hover:not(:disabled) {
+  background: var(--bg-color-2);
+}
+
+.sentBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--fg-color-0);
+}
