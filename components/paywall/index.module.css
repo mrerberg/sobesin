@@ -4,83 +4,113 @@
   align-items: center;
   justify-content: center;
   padding: 40px;
-  background: #fafafa;
+  background: var(--bg-color);
+  color: var(--fg-color);
 }
 
 .card {
   max-width: 480px;
   width: 100%;
   padding: 32px;
-  border-radius: 16px;
+  border-radius: 20px;
+
+  /* СПОКОЙНЫЙ ФОН — КАК БЫЛО */
   background: white;
+  color: var(--fg-color);
+
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  font-family: sans-serif;
+}
+
+/* Темная тема — НЕ делаем пестро, аккуратный тёмный фон */
+.dark-mode .card {
+  background: var(--bg-color-1);
+}
+
+.badge {
+  display: inline-block;
+  background: var(--notion-purple_background_co);
+  color: var(--notion-purple);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
 }
 
 .title {
-  margin-bottom: 12px;
-  font-size: 26px;
+  margin-bottom: 16px;
+  font-size: 28px;
   font-weight: 700;
 }
 
-.text {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #444;
+.subtitle {
+  font-size: 15px;
+  opacity: 0.9;
   margin-bottom: 24px;
 }
 
-.tgButton {
-  display: block;
-  width: 100%;
-  text-align: center;
-  padding: 14px 20px;
-  background: #2aabee;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
+.list {
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  margin-bottom: 8px;
+  opacity: 0.95;
+}
+
+/* Цена — выразительная, но не кричащая */
+.priceBox {
   margin-bottom: 20px;
-}
-
-.divider {
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(128, 92, 232, 0.08); /* мягкая подложка */
   text-align: center;
-  opacity: 0.6;
-  margin: 20px 0;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.dark-mode .priceBox {
+  background: rgba(154, 109, 215, 0.15);
 }
 
-.input {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 15px;
+.priceValue {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--notion-purple);
+  display: block;
+}
+
+.priceLabel {
+  opacity: 0.7;
+  font-size: 14px;
 }
 
 .submit {
-  position: relative;
-  padding: 12px;
-  border-radius: 8px;
-  background: #111;
-  color: white;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.success {
-  color: green;
-  font-weight: bold;
+  width: 100%;
+  display: block;
   text-align: center;
-  margin-top: 12px;
+  padding: 14px;
+  border-radius: 10px;
+
+  /* АКЦЕНТНЫЙ ЦВЕТ */
+  background: var(--notion-purple);
+  color: #fff;
+
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
 }
 
-.submit:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
+.submit:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.submit:active {
+  transform: translateY(1px);
 }
