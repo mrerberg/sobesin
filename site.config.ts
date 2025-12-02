@@ -16,7 +16,7 @@ export default siteConfig({
   author: 'Michel Cheremukhin-Rerberg',
 
   // open graph metadata (optional)
-  description: 'Example Next.js Notion Starter Kit Site',
+  description: 'Начни подготовку к собеседованиям прямо сейчас',
 
   // social usernames (optional)
   // twitter: '#',
