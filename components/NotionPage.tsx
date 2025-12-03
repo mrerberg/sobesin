@@ -291,8 +291,12 @@ export function NotionPage({
         isBlogPost={isBlogPost}
       />
 
-      {isLiteMode && <BodyClassName className='notion-lite' />}
-      {isDarkMode && <BodyClassName className='dark-mode' />}
+      <BodyClassName
+        className={cs({
+          'notion-lite': isLiteMode,
+          'dark-mode': isDarkMode
+        })}
+      />
 
       <FeedbackForm title={title} />
 

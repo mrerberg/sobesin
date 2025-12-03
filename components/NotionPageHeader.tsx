@@ -10,6 +10,7 @@ import { useDarkMode } from '@/lib/use-dark-mode'
 
 import styles from './styles.module.css'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ToggleThemeButton() {
   const [hasMounted, setHasMounted] = React.useState(false)
   const { isDarkMode, toggleDarkMode } = useDarkMode()
@@ -79,7 +80,7 @@ export function NotionPageHeader({
             })
             .filter(Boolean)}
 
-          <ToggleThemeButton />
+          {/* <ToggleThemeButton /> */}
 
           {isSearchEnabled && <Search block={block} title={null} />}
         </div>

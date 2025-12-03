@@ -7,7 +7,7 @@ export default class MyDocument extends Document {
   override render() {
     return (
       <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-        <Html lang='en'>
+        <Html lang='ru'>
           <Head>
             <link rel='shortcut icon' href='/favicon.ico' />
             <link
@@ -22,7 +22,7 @@ export default class MyDocument extends Document {
             <Analytics.Header />
           </Head>
 
-          <body>
+          <body className='dark-mode'>
             <Analytics.Body />
             <script
               dangerouslySetInnerHTML={{
@@ -33,8 +33,9 @@ export default class MyDocument extends Document {
   var classNameDark = 'dark-mode'
   var classNameLight = 'light-mode'
   function setClassOnDocumentBody(darkMode) {
-    document.body.classList.add(darkMode ? classNameDark : classNameLight)
-    document.body.classList.remove(darkMode ? classNameLight : classNameDark)
+    // document.body.classList.add(darkMode ? classNameDark : classNameLight)
+    // document.body.classList.remove(darkMode ? classNameLight : classNameDark)
+    document.body.classList.add(classNameDark)
   }
   var preferDarkQuery = '(prefers-color-scheme: dark)'
   var mql = window.matchMedia(preferDarkQuery)

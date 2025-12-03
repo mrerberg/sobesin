@@ -1,56 +1,80 @@
 .wrapper {
   min-height: 100vh;
+  min-height: 100dvh;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+
+  padding: 40px 16px 56px;
+
   background: var(--bg-color);
   color: var(--fg-color);
 }
 
 .card {
-  max-width: 480px;
+  max-width: 520px;
   width: 100%;
   padding: 32px;
   border-radius: 20px;
 
-  /* СПОКОЙНЫЙ ФОН — КАК БЫЛО */
   background: white;
   color: var(--fg-color);
 
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Темная тема — НЕ делаем пестро, аккуратный тёмный фон */
-.dark-mode .card {
+.header {
+  margin-top: 12px;
+}
+
+.card {
+  background: var(--bg-color-0);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+  color: var(--fg-color);
+}
+
+/* темная тема – мягкая, без пестроты */
+.card {
   background: var(--bg-color-1);
+  border-color: rgba(15, 23, 42, 0.6);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
 }
 
 .badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
   background: var(--notion-purple_background_co);
   color: var(--notion-purple);
   padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 13px;
+  border-radius: 999px;
+
+  font-size: 12px;
   font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   margin-bottom: 16px;
 }
 
 .title {
-  margin-bottom: 16px;
-  font-size: 28px;
+  margin: 0 0 10px;
+  font-size: 26px;
   font-weight: 700;
+  line-height: 1.25;
 }
 
 .subtitle {
   font-size: 15px;
   opacity: 0.9;
-  margin-bottom: 24px;
+  margin: 0 0 22px;
 }
 
 .list {
-  margin: 0 0 28px;
+  margin: 0 0 24px;
   padding: 0;
   list-style: none;
 }
@@ -58,23 +82,30 @@
 .list li {
   margin-bottom: 8px;
   opacity: 0.95;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
 }
 
-/* Цена — выразительная, но не кричащая */
+/* блок с ценой под Notion-карточку */
 .priceBox {
   margin-bottom: 20px;
-  padding: 16px;
+  padding: 14px 16px;
   border-radius: 12px;
-  background: rgba(128, 92, 232, 0.08); /* мягкая подложка */
+
+  background: rgba(154, 109, 215, 0.06);
+  border: 1px solid rgba(154, 109, 215, 0.18);
+
   text-align: center;
 }
 
 .dark-mode .priceBox {
-  background: rgba(154, 109, 215, 0.15);
+  background: rgba(154, 109, 215, 0.16);
+  border-color: rgba(154, 109, 215, 0.35);
 }
 
 .priceValue {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 800;
   color: var(--notion-purple);
   display: block;
@@ -82,35 +113,65 @@
 
 .priceLabel {
   opacity: 0.7;
-  font-size: 14px;
+  font-size: 13px;
 }
 
+/* CTA-кнопка в духе notion-кнопок */
 .submit {
   width: 100%;
-  display: block;
-  text-align: center;
-  padding: 14px;
-  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  /* АКЦЕНТНЫЙ ЦВЕТ */
+  padding: 12px 16px;
+  border-radius: 999px;
+
   background: var(--notion-purple);
-  color: #fff;
+  color: #ffffff;
 
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   text-decoration: none;
   cursor: pointer;
 
+  border: none;
+  outline: none;
+
   transition:
-    opacity 0.15s ease,
-    transform 0.15s ease;
+    background 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.1s ease;
 }
 
 .submit:hover {
-  opacity: 0.9;
+  background: rgb(135, 96, 211);
+  box-shadow: 0 10px 24px rgba(154, 109, 215, 0.35);
   transform: translateY(-1px);
 }
 
 .submit:active {
-  transform: translateY(1px);
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(154, 109, 215, 0.4);
+}
+
+/* адаптив под мобилки */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 24px 12px 32px;
+    align-items: stretch;
+  }
+
+  .card {
+    max-width: 100%;
+    padding: 22px 18px 20px;
+    border-radius: 16px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .priceValue {
+    font-size: 26px;
+  }
 }

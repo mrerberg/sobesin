@@ -1,8 +1,10 @@
 import { pushToAnalytics } from 'lib/push-to-analytics'
 import Link from 'next/link'
 import { useEffect } from 'react'
+import BodyClassName from 'react-body-classname'
 
 import { getStore } from '../../lib/store'
+import { BackButton } from '../back-button'
 import styles from './index.module.css'
 
 export function Paywall() {
@@ -38,14 +40,18 @@ export function Paywall() {
 
   return (
     <div className={styles.wrapper}>
+      <BodyClassName className='dark-mode' />
       <div className={styles.card}>
-        <div className={styles.badge}>План «Pro»</div>
+        <BackButton />
 
-        <h1 className={styles.title}>Полный доступ к Sobesin Pro</h1>
+        <div className={styles.header}>
+          <div className={styles.badge}>План «Pro»</div>
+          <h1 className={styles.title}>Полный доступ к Sobesin Pro</h1>
+        </div>
 
         <div className={styles.priceBox}>
           <span className={styles.priceValue}>4&nbsp;999&nbsp;₽</span>
-          <span className={styles.priceLabel}>разовый платеж</span>
+          <span className={styles.priceLabel}>единоразовый платеж</span>
         </div>
 
         <p className={styles.subtitle}>
@@ -56,7 +62,7 @@ export function Paywall() {
           <li>🔥 Все темы и карточки без ограничений</li>
           <li>🧾 Готовые ответы, примеры и анти-примеры</li>
           <li>🧠 Практика и встречные вопросы</li>
-          <li>🚩 Фейлы и красный флаги для интервьюеров</li>
+          <li>🚩 Фейлы и красные флаги для интервьюеров</li>
         </ul>
 
         <Link href='/lead' className={styles.submit} onClick={handleOpenLead}>

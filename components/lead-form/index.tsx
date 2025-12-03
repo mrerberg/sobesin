@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
+import BodyClassName from 'react-body-classname'
 
 import { pushToAnalytics } from '../../lib/push-to-analytics'
 import { getStore } from '../../lib/store'
+import { BackButton } from '../back-button'
 import styles from './index.module.css'
 
 export function LeadForm() {
@@ -73,8 +75,9 @@ export function LeadForm() {
 
   return (
     <div className={styles.wrapper}>
+      <BodyClassName className='dark-mode' />
       <div className={styles.card}>
-        {/* <h1 className={styles.title}>🔒 Доступ к Pro-версии</h1> */}
+        <BackButton />
 
         <h1 className={styles.title}>Ранний доступ к Sobesin Pro</h1>
 

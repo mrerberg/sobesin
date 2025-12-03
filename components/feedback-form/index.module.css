@@ -47,6 +47,7 @@
 
 /* сама модалка */
 .modal {
+  position: relative;
   max-width: 480px;
   width: 100%;
 
@@ -68,13 +69,18 @@
 }
 
 .modalTitle {
+  width: 100%;
   margin: 0;
-  font-size: 14px;
-  font-weight: 600;
+  /* font-size: 14px;
+  font-weight: 600; */
   color: var(--fg-color-0);
+  text-align: center;
 }
 
 .closeButton {
+  position: absolute;
+  top: 6px;
+  right: 6px;
   border: none;
   background: transparent;
   color: var(--notion-gray);
@@ -88,9 +94,9 @@
 }
 
 .context {
-  font-size: 12px;
-  color: var(--fg-color-5);
-  margin: 0 0 12px;
+  font-size: 14px;
+  margin: 0 0 16px;
+  text-align: center;
 }
 
 .form {

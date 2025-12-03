@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+import cs from 'classnames'
 import React, { type FormEvent, useEffect, useState } from 'react'
 
 import { getStore } from '../../lib/store'
@@ -101,7 +102,9 @@ export function FeedbackForm({ title }: Props) {
             aria-modal='true'
           >
             <div className={styles.modalHeader}>
-              <h3 className={styles.modalTitle}>Обратная связь</h3>
+              <h3 className={cs(styles.modalTitle, 'notion-h-title')}>
+                Форма обратной связи
+              </h3>
               <button
                 type='button'
                 className={styles.closeButton}
@@ -111,11 +114,11 @@ export function FeedbackForm({ title }: Props) {
               </button>
             </div>
 
-            <p className={styles.context}>
-              По материалу:{' '}
-              <strong>
-                [{getStore()?.contentType}] {title}
-              </strong>
+            <p className={cs(styles.context, 'notion-text')}>
+              Сообщи о проблеме, баге или же предложи свои идеи по улучшению
+              сервиса!
+              <br />
+              Будем очень благодарны за обратную связь :)
             </p>
 
             {sent ? (
@@ -134,17 +137,14 @@ export function FeedbackForm({ title }: Props) {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className={styles.form}>
-                <label className={styles.label}>
-                  Текст обращения
-                  <textarea
-                    className={styles.textarea}
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                    rows={4}
-                    placeholder='Расскажите, что было непонятно, что можно улучшить, какую ошибку заметили'
-                    required
-                  />
-                </label>
+                <textarea
+                  className={styles.textarea}
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  rows={4}
+                  placeholder='Опишите суть проблемы или предложения по улучшению.'
+                  required
+                />
 
                 {error && <p className={styles.error}>{error}</p>}
 

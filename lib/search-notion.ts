@@ -3,6 +3,7 @@ import pMemoize from 'p-memoize'
 
 import type * as types from './types'
 import { api } from './config'
+import { pushToAnalytics } from './push-to-analytics'
 
 export const searchNotion = pMemoize(searchNotionImpl, {
   cacheKey: (args) => args[0]?.query,
@@ -33,6 +34,23 @@ async function searchNotionImpl(
       throw error
     })
     .then((res) => res.json() as Promise<types.SearchResults>)
+    .then((results) => {
+      if (typeof window !== 'undefined') {
+        const resultsArray = (results as any).results
+        const resultsCount = Array.isArray(resultsArray)
+          ? resultsArray.length
+          : 0
+
+        pushToAnalytics({
+          event: 'view_search_results',
+          search_query: (params as any).query ?? '',
+          results_count: resultsCount,
+          from_page: window.location.pathname
+        })
+      }
+
+      return results
+    })
 
   // return ky
   //   .post(api.searchNotion, {
