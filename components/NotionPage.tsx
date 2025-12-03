@@ -298,7 +298,7 @@ export function NotionPage({
         })}
       />
 
-      <FeedbackForm title={title} />
+      <FeedbackForm />
 
       <NotionRenderer
         bodyClassName={cs(

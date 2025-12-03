@@ -5,17 +5,13 @@ import React, { type FormEvent, useEffect, useState } from 'react'
 import { getStore } from '../../lib/store'
 import styles from './index.module.css'
 
-type Props = {
-  title: string
-}
-
 type FeedbackRequest = {
   title: string
   contentType: 'card' | 'topic'
   text: string
 }
 
-export function FeedbackForm({ title }: Props) {
+export function FeedbackForm() {
   const [isOpen, setIsOpen] = useState(false)
   const [text, setText] = useState('')
   const [isSending, setIsSending] = useState(false)
