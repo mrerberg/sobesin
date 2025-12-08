@@ -10,13 +10,10 @@ import styles from './index.module.css'
 export function Paywall() {
   useEffect(() => {
     if (typeof window === 'undefined') return
-
     const w = window as any
-    const { data = {} } = w
-    const { cleanTitle, topicKey } = data
+    const { cleanTitle, topicKey } = getStore()
 
-    w.dataLayer = w.dataLayer || []
-    w.dataLayer.push({
+    pushToAnalytics({
       event: 'paywall_view',
       content_title: cleanTitle,
       topic_key: topicKey,

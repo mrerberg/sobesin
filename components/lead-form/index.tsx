@@ -13,18 +13,14 @@ export function LeadForm() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    const w = window as any
-    const { dataLayer = [], location, data } = w
-    const { cleanTitle, topicKey } = data || {}
+    const { cleanTitle, topicKey } = getStore()
 
-    dataLayer.push({
+    pushToAnalytics({
       event: 'lead_view',
       content_title: cleanTitle,
       topic_key: topicKey,
       from_page: document.referrer || location.pathname
     })
-
-    w.dataLayer = dataLayer
   }, [])
 
   // eslint-disable-next-line unicorn/consistent-function-scoping
