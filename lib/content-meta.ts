@@ -4,6 +4,21 @@ export type ContentMeta = {
   topicKey: string | null
 }
 
+const TOPICS_LIST = new Set([
+  'React',
+  'Сеть',
+  'Безопасность',
+  'State managers',
+  'JavaScript',
+  'TypeScript',
+  'Архитектура',
+  'Тестирование',
+  'Инженерные практики',
+  'Troubleshooting',
+  'Надежность, эксплуатация, наблюдаемость',
+  'Тестовые задания'
+])
+
 export function parseContentMeta(rawTitle: string): ContentMeta {
   if (rawTitle === 'Sobesin — Frontend Developer') {
     return {
@@ -13,9 +28,11 @@ export function parseContentMeta(rawTitle: string): ContentMeta {
     }
   }
 
-  const match = rawTitle.match(/\[t-([^\]]+)\]/)
+  const topicMatch = TOPICS_LIST.has(rawTitle)
 
-  if (!match) {
+  console.log('is topic -->', topicMatch)
+
+  if (!topicMatch) {
     return {
       contentType: 'card',
       cleanTitle: rawTitle.trim(),
@@ -23,12 +40,11 @@ export function parseContentMeta(rawTitle: string): ContentMeta {
     }
   }
 
-  const topicKey = match[1]?.trim() || ''
   const cleanTitle = rawTitle.replace(/\[t-[^\]]+\]/, '').trim()
 
   return {
     contentType: 'topic',
     cleanTitle,
-    topicKey
+    topicKey: rawTitle
   }
 }
