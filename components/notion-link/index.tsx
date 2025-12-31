@@ -15,13 +15,36 @@ export function NotionLink(props: any) {
   if (isInternal) {
     const cleanHref = href.startsWith('http') ? new URL(href).pathname : href
 
-    const handleClick = () => {
-      if (href.includes('/paywall')) {
-        const { cleanTitle, topicKey } = (window as any).data || {
-          cleanTitle: '',
-          topicKey: ''
-        }
+    const handleClick = (evt: any) => {
+      const { cleanTitle, topicKey } = (window as any).data || {
+        cleanTitle: '',
+        topicKey: ''
+      }
 
+      if (href.includes('/contact')) {
+        evt.preventDefault()
+
+        pushToAnalytics({
+          event: 'click_cta_contact',
+          content_title: cleanTitle,
+          topic_key: topicKey,
+          from_page: window.location.pathname
+        })
+
+        window.dispatchEvent(
+          new CustomEvent('sobesin:openContactModal', {
+            detail: {
+              source: 'contact_link',
+              content_title: cleanTitle,
+              topic_key: topicKey
+            }
+          })
+        )
+
+        return
+      }
+
+      if (href.includes('/paywall')) {
         if (cleanTitle === 'Sobesin') {
           pushToAnalytics({
             event: 'click_cta_buy',

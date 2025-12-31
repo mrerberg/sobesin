@@ -1,0 +1,217 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px 12px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+}
+
+.close {
+  position: absolute;
+  top: -10px;
+  right: -6px;
+
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+/* === твои стили карточки === */
+
+.card {
+  max-width: 520px;
+  width: 100%;
+
+  padding: 28px 26px 24px;
+  border-radius: 22px;
+
+  background: var(--bg-color-0, #ffffff);
+  color: var(--fg-color);
+
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+.dark-mode .card {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.75);
+}
+
+.title {
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.text {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin: 0 0 18px;
+}
+
+.tgButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 999px;
+
+  background: #2aabee;
+  color: #ffffff;
+
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+
+  border: none;
+  outline: none;
+
+  transition:
+    background 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.1s ease;
+}
+
+.tgButton:hover {
+  background: #2295cf;
+  box-shadow: 0 10px 24px rgba(34, 149, 207, 0.55);
+  transform: translateY(-1px);
+}
+
+.tgButton:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 14px rgba(34, 149, 207, 0.6);
+}
+
+.divider {
+  text-align: center;
+  opacity: 0.6;
+  margin: 20px 0 18px;
+  font-size: 13px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input {
+  padding: 11px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  background: var(--bg-color);
+  color: var(--fg-color);
+  font-size: 14px;
+  outline: none;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.input::placeholder {
+  opacity: 0.6;
+}
+
+.input:focus {
+  border-color: var(--notion-purple);
+  box-shadow: 0 0 0 1px rgba(154, 109, 215, 0.5);
+}
+
+.submit {
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: none;
+
+  background: var(--notion-purple);
+  color: #ffffff;
+
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.1s ease,
+    opacity 0.15s ease;
+}
+
+.submit:hover:enabled {
+  background: rgb(135, 96, 211);
+  box-shadow: 0 10px 24px rgba(154, 109, 215, 0.5);
+  transform: translateY(-1px);
+}
+
+.submit:active:enabled {
+  transform: translateY(0);
+  box-shadow: 0 5px 14px rgba(154, 109, 215, 0.5);
+}
+
+.submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.success {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  color: #4ade80;
+}
+
+.secondary {
+  margin-top: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: transparent;
+  color: var(--fg-color);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 22px 18px 20px;
+    border-radius: 18px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+}

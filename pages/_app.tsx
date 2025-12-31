@@ -21,6 +21,8 @@ import * as React from 'react'
 
 import { fathomConfig, fathomId, posthogConfig, posthogId } from '@/lib/config'
 
+import { ContactModal } from '../components/contact-modal'
+
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
@@ -50,5 +52,10 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }, [router.events])
 
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Component {...pageProps} />
+      <ContactModal />
+    </>
+  )
 }
