@@ -8,7 +8,8 @@ export function NotionLink(props: any) {
 
   const isInternal =
     href.startsWith('/') ||
-    href.startsWith(process.env.NEXT_PUBLIC_SITE_URL || '')
+    (process.env.NEXT_PUBLIC_SITE_URL &&
+      href.startsWith(process.env.NEXT_PUBLIC_SITE_URL))
 
   console.log('isInternal -->', href, isInternal)
 
