@@ -3,13 +3,41 @@ import React from 'react'
 
 import { pushToAnalytics } from '../../lib/push-to-analytics'
 
+function getBaseOrigin() {
+  const envUrl = process.env.NEXT_PUBLIC_SITE_URL
+
+  if (envUrl) {
+    try {
+      return new URL(envUrl).origin
+    } catch {
+      return null
+    }
+  }
+
+  if (typeof window !== 'undefined') {
+    return window.location.origin
+  }
+
+  return null
+}
+
 export function NotionLink(props: any) {
   const href: string = props.href || ''
 
-  const isInternal =
-    href.startsWith('/') ||
-    (process.env.NEXT_PUBLIC_SITE_URL &&
-      href.startsWith(process.env.NEXT_PUBLIC_SITE_URL))
+  const isInternal = (() => {
+    if (href.startsWith('/')) return true
+    if (href.startsWith('#')) return true
+
+    const baseOrigin = getBaseOrigin()
+    if (!baseOrigin) return false
+
+    try {
+      const linkUrl = new URL(href)
+      return linkUrl.origin === baseOrigin
+    } catch {
+      return false
+    }
+  })()
 
   console.log('isInternal -->', href, isInternal)
 
