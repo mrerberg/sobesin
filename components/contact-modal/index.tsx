@@ -48,7 +48,7 @@ export function ContactModal() {
 
   return (
     <>
-      {/* если у тебя темная тема через класс — оставляем */}
+      {/* Если у тебя темная тема через класс — оставляем */}
       <BodyClassName className='dark-mode' />
 
       <div className={styles.backdrop} onMouseDown={() => setIsOpen(false)}>
